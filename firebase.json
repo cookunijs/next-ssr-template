@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "public": ".next/static",
+    "rewrites": [
+      {
+        "source": "**/**",
+        "run": {
+          "serviceId": "renderer",
+          "region": "asia-northeast1"
+        }
+      }
+    ],
+    "postdeploy": [
+      "yarn gcloud:build",
+      "yarn gcloud:run"
+    ]
+  }
+}
